@@ -36,25 +36,32 @@ if(strlen($msg) > 0) {
     }
 }
 ?>
-<!doctype html>
-<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
 
     <title><?php echo $site_name; ?></title>
 
-    <link rel="shortcut icon" href="<?php echo $site_url; ?>assets/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="<?php echo $site_url; ?>src/assets/img/favicon.ico"/>
 
-    <script src="<?php echo $site_url; ?>assets/js/layout.js"></script>
+    <link href="<?php echo $site_url; ?>layouts/vertical-light-menu/css/light/loader.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo $site_url; ?>layouts/vertical-light-menu/css/dark/loader.css" rel="stylesheet" type="text/css" />
+    <script src="<?php echo $site_url; ?>layouts/vertical-light-menu/loader.js"></script>
     
-    <link href="<?php echo $site_url; ?>assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="<?php echo $site_url; ?>assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-    <link href="<?php echo $site_url; ?>assets/css/app.min.css" rel="stylesheet" type="text/css" />
-    <link href="<?php echo $site_url; ?>assets/css/custom.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+    <link href="<?php echo $site_url; ?>src/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    
+    <link href="<?php echo $site_url; ?>layouts/vertical-light-menu/css/light/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo $site_url; ?>src/assets/css/light/authentication/auth-boxed.css" rel="stylesheet" type="text/css" />
+    
+    <link href="<?php echo $site_url; ?>layouts/vertical-light-menu/css/dark/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo $site_url; ?>src/assets/css/dark/authentication/auth-boxed.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body>
+<body class="form">
     <div class="auth-page-wrapper pt-5">
         <div class="auth-one-bg-position auth-one-bg" id="auth-particles">
             <div class="bg-overlay"></div>
@@ -130,15 +137,7 @@ if(strlen($msg) > 0) {
         </footer>
     </div>
 
-    <script src="<?php echo $site_url; ?>assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="<?php echo $site_url; ?>assets/libs/simplebar/simplebar.min.js"></script>
-    <script src="<?php echo $site_url; ?>assets/libs/node-waves/waves.min.js"></script>
-    <script src="<?php echo $site_url; ?>assets/libs/feather-icons/feather.min.js"></script>
-    <script src="<?php echo $site_url; ?>assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
-    <script src="<?php echo $site_url; ?>assets/js/plugins.js"></script>
-
-    <script src="<?php echo $site_url; ?>assets/libs/particles.js/particles.js"></script>
-    <script src="<?php echo $site_url; ?>assets/js/pages/particles.app.js"></script>
-    <script src="<?php echo $site_url; ?>assets/js/pages/password-addon.init.js"></script>
+        
+    <script src="<?php echo $site_url; ?>src/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
