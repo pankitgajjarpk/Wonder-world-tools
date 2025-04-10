@@ -1,2 +1,0 @@
-- Display last quotation product price as per customer and product
-- Send current day total challan details in email with PDF
