@@ -7,52 +7,84 @@ if ($_SESSION["logged_user_id"] == "") {
     exit;
 }
 ?>
-<!doctype html>
-<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
     
     <title><?php echo $site_name; ?></title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="<?php echo $site_name; ?>" name="description" />
-    <meta content="Themesbrand" name="<?php echo $site_name; ?>" />
-
-    <link rel="shortcut icon" href="<?php echo $site_url; ?>assets/images/favicon.ico">
-
-    <script src="<?php echo $site_url; ?>assets/js/layout.js"></script>
+    <link rel="icon" type="image/x-icon" href="<?php echo $site_url; ?>src/assets/img/favicon.ico"/>
+    <link href="<?php echo $site_url; ?>layouts/vertical-light-menu/css/light/loader.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo $site_url; ?>layouts/vertical-light-menu/css/dark/loader.css" rel="stylesheet" type="text/css" />
     
-    <link href="<?php echo $site_url; ?>assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="<?php echo $site_url; ?>layouts/vertical-light-menu/loader.js"></script>
     
-    <link href="<?php echo $site_url; ?>assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-    <link href="<?php echo $site_url; ?>assets/css/app.min.css" rel="stylesheet" type="text/css" />
-    <link href="<?php echo $site_url; ?>assets/css/custom.min.css" rel="stylesheet" type="text/css" />    
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+    
+    <link href="<?php echo $site_url; ?>src/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo $site_url; ?>layouts/vertical-light-menu/css/light/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo $site_url; ?>layouts/vertical-light-menu/css/dark/plugins.css" rel="stylesheet" type="text/css" />
+    
+    <link href="<?php echo $site_url; ?>src/plugins/src/apex/apexcharts.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo $site_url; ?>src/assets/css/light/components/list-group.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo $site_url; ?>src/assets/css/light/dashboard/dash_2.css" rel="stylesheet" type="text/css" />
+
+    <link href="<?php echo $site_url; ?>src/assets/css/dark/components/list-group.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo $site_url; ?>src/assets/css/dark/dashboard/dash_2.css" rel="stylesheet" type="text/css" />    
 </head>
 
-<body>
-    <div id="layout-wrapper">
-        <header id="page-topbar">
-            <div class="layout-width">
-                <div class="navbar-header">
-                    <div class="d-flex">
-                        <b>Welcome to <?php echo $site_name; ?></b>
-                    </div>
+<body class=" layout-boxed">
+    <div id="load_screen">
+        <div class="loader">
+            <div class="loader-content">
+                <div class="spinner-grow align-self-center"></div>
+            </div>
+        </div>
+    </div>
 
-                    <div class="d-flex align-items-center">
-                        <div class="dropdown ms-sm-3 header-item topbar-user">
-                            <button type="button" class="btn material-shadow-none" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="d-flex align-items-center">
-                                    <img class="rounded-circle header-profile-user" src="<?php echo $site_url; ?>assets/images/users/user-dummy-img.jpg" alt="Header Avatar">
-                                    <span class="text-start ms-xl-2">
-                                        <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text"><?php echo $_SESSION["logged_user_name"]; ?></span>
-                                    </span>
-                                </span>
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-end">
-                                <a class="dropdown-item" href="logout.php"><i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span class="align-middle" data-key="t-logout">Logout</span></a>
+    <div class="header-container container-xxl">
+        <header class="header navbar navbar-expand-sm expand-header">
+
+            <ul class="navbar-item theme-brand flex-row  text-center">
+                <li class="nav-item theme-text">
+                    <a href="<?php echo $site_url; ?>" class="nav-link"><?php echo $site_name; ?> </a>
+                </li>
+            </ul>
+            <ul class="navbar-item flex-row ms-lg-auto ms-0 action-area">
+                <li class="nav-item dropdown user-profile-dropdown  order-lg-0 order-1">
+                    <a href="javascript:void(0);" class="nav-link dropdown-toggle user" id="userProfileDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="avatar-container">
+                            <div class="avatar avatar-sm avatar-indicators avatar-online">
+                                <img alt="avatar" src="<?php echo $site_url; ?>src/assets/img/user-dummy-img.jpg" class="rounded-circle">
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
+                    </a>
+
+                    <div class="dropdown-menu position-absolute" aria-labelledby="userProfileDropdown">
+                        <div class="user-profile-section">
+                            <div class="media mx-auto">
+                                <div class="emoji me-2">
+                                    &#x1F44B;
+                                </div>
+                                <div class="media-body">
+                                    <h5><?php echo $_SESSION["logged_user_name"]; ?></h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown-item">
+                            <a href="logout.php">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg> <span>Log Out</span>
+                            </a>
+                        </div>
+                    </div>                    
+                </li>
+            </ul>
         </header>
+    </div>
+
+    <div class="main-container" id="container">
+        <div class="overlay"></div>
+        <div class="search-overlay"></div>
