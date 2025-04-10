@@ -62,81 +62,52 @@ if(strlen($msg) > 0) {
 </head>
 
 <body class="form">
-    <div class="auth-page-wrapper pt-5">
-        <div class="auth-one-bg-position auth-one-bg" id="auth-particles">
-            <div class="bg-overlay"></div>
-
-            <div class="shape">
-                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1440 120">
-                    <path d="M 0,36 C 144,53.6 432,123.2 720,124 C 1008,124.8 1296,56.8 1440,40L1440 140L0 140z"></path>
-                </svg>
+    <div id="load_screen">
+        <div class="loader">
+            <div class="loader-content">
+                <div class="spinner-grow align-self-center"></div>
             </div>
         </div>
-
-        <div class="auth-page-content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="text-center mt-sm-5 mb-4 text-white-50">
-                            <div>
-                                <?php /* ?><a href="<?php echo $site_url; ?>" class="d-inline-block auth-logo">
-                                    <img src="assets/images/logo-light.png" alt="" height="20">
-                                </a><?php */ ?>
-                            </div>
-                            <p class="mt-3 fs-15 fw-medium"><?php echo $site_name; ?></p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="row justify-content-center">
-                    <div class="col-md-8 col-lg-6 col-xl-5">
-                        <div class="card mt-4 card-bg-fill">
-                            <div class="card-body p-4">
-                                <div class="text-center mt-2">
-                                    <h5 class="text-primary">Sign in to continue to <?php echo $site_name; ?></h5>
-
-                                    <?php if($mymsg != "") { echo $mymsg; } ?>
-                                </div>
-                                <div class="p-2 mt-4">
-                                    <form action="<?php echo SITE_URL; ?>login-db.php" method="POST">
-                                        <div class="mb-3">
-                                            <label for="username" class="form-label">Email Address</label>
-                                            <input required type="text" class="form-control" id="username" placeholder="Enter username" name="user_email_address">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="form-label" for="password-input">Password</label>
-                                            <div class="position-relative auth-pass-inputgroup mb-3">
-                                                <input required type="password" class="form-control pe-5 password-input" placeholder="Enter password" name="user_password" id="password-input">
-                                                <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon material-shadow-none" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
-                                            </div>
-                                        </div>
-                                        <div class="mt-4">
-                                            <button class="btn btn-success w-100" type="submit">Sign In</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <footer class="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="text-center">
-                            <p class="mb-0 text-muted">&copy;
-                                <script>document.write(new Date().getFullYear())</script> <?php echo $site_name; ?>. Developed by The Crazy Coders.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
     </div>
 
+    <div class="auth-container d-flex">
+        <div class="container mx-auto align-self-center">
+            <div class="row">
+                <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-8 col-12 d-flex flex-column align-self-center mx-auto">
+                    <div class="card mt-3 mb-3">
+                        <div class="card-body">
+                            <form action="login-db.php" method="POST">
+                                <div class="row">
+                                    <div class="col-md-12 mb-3">
+                                        <h2>Sign In</h2>
+                                        <p>Enter your email address and password to login</p>
+                                        <?php if($mymsg != "") { echo $mymsg; } ?>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="mb-3">
+                                            <label class="form-label">Email Address</label>
+                                            <input required type="email" name="user_email_address" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="mb-4">
+                                            <label class="form-label">Password</label>
+                                            <input required type="password" name="user_password" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="mb-4">
+                                            <input type="submit" class="btn btn-secondary w-100" value="SIGN IN">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
         
     <script src="<?php echo $site_url; ?>src/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
