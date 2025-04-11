@@ -128,7 +128,7 @@ code {
 }
 
 .widget {
-  padding: 0;
+  padding: 0 !important;
   margin-top: 0;
   margin-bottom: 0;
   box-shadow: 0 0 40px 0 rgba(94, 92, 154, 0.06);

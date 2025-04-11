@@ -18,7 +18,6 @@ if ($_SESSION["logged_user_id"] == "") {
 
     <link rel="icon" type="image/x-icon" href="<?php echo $site_url; ?>src/assets/img/favicon.ico"/>
     <link href="<?php echo $site_url; ?>layouts/vertical-light-menu/css/light/loader.css" rel="stylesheet" type="text/css" />
-    <link href="<?php echo $site_url; ?>layouts/vertical-light-menu/css/dark/loader.css" rel="stylesheet" type="text/css" />
     
     <script src="<?php echo $site_url; ?>layouts/vertical-light-menu/loader.js"></script>
     
@@ -26,14 +25,10 @@ if ($_SESSION["logged_user_id"] == "") {
     
     <link href="<?php echo $site_url; ?>src/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo $site_url; ?>layouts/vertical-light-menu/css/light/plugins.css" rel="stylesheet" type="text/css" />
-    <link href="<?php echo $site_url; ?>layouts/vertical-light-menu/css/dark/plugins.css" rel="stylesheet" type="text/css" />
     
     <link href="<?php echo $site_url; ?>src/plugins/src/apex/apexcharts.css" rel="stylesheet" type="text/css">
     <link href="<?php echo $site_url; ?>src/assets/css/light/components/list-group.css" rel="stylesheet" type="text/css">
-    <link href="<?php echo $site_url; ?>src/assets/css/light/dashboard/dash_2.css" rel="stylesheet" type="text/css" />
-
-    <link href="<?php echo $site_url; ?>src/assets/css/dark/components/list-group.css" rel="stylesheet" type="text/css">
-    <link href="<?php echo $site_url; ?>src/assets/css/dark/dashboard/dash_2.css" rel="stylesheet" type="text/css" />    
+    <link href="<?php echo $site_url; ?>src/assets/css/light/dashboard/dash_2.css" rel="stylesheet" type="text/css" />  
 </head>
 
 <body class=" layout-boxed">
