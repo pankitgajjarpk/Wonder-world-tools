@@ -33,7 +33,12 @@ if ($_SESSION["logged_user_id"] == "") {
     
     <link href="<?php echo $site_url; ?>src/plugins/src/apex/apexcharts.css" rel="stylesheet" type="text/css">
     <link href="<?php echo $site_url; ?>src/assets/css/light/components/list-group.css" rel="stylesheet" type="text/css">
-    <link href="<?php echo $site_url; ?>src/assets/css/light/dashboard/dash_2.css" rel="stylesheet" type="text/css" />  
+    <link href="<?php echo $site_url; ?>src/assets/css/light/dashboard/dash_2.css" rel="stylesheet" type="text/css" />
+
+    <?php if ($cur_page == "user-list.php") { ?>
+    <link rel="stylesheet" type="text/css" href="<?php echo $site_url; ?>src/plugins/src/table/datatable/datatables.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo $site_url; ?>src/plugins/css/light/table/datatable/dt-global_style.css">
+    <?php } ?>
 </head>
 
 <body class=" layout-boxed">

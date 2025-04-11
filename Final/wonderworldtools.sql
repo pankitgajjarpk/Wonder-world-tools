@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 10, 2025 at 01:53 PM
+-- Generation Time: Apr 11, 2025 at 03:06 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -496,6 +496,7 @@ CREATE TABLE `tbl_site_details` (
   `site_email_address` varchar(50) DEFAULT NULL,
   `site_mobile_number` varchar(10) DEFAULT NULL,
   `site_address` text DEFAULT NULL,
+  `site_gst_number` varchar(20) DEFAULT NULL,
   `site_challan_prefix` varchar(6) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
@@ -503,8 +504,8 @@ CREATE TABLE `tbl_site_details` (
 -- Dumping data for table `tbl_site_details`
 --
 
-INSERT INTO `tbl_site_details` (`site_id`, `site_logo`, `site_name`, `site_email_address`, `site_mobile_number`, `site_address`, `site_challan_prefix`) VALUES
-(1, '', 'Wonder World Tolls', 'pankit.work@gmail.com', '9067752224', '150 Feet Ring Rd, Govardhan Chowk,\r\nPunit Nagar, Mavdi, Rajkot,\r\nGujarat 360004', 'WWT');
+INSERT INTO `tbl_site_details` (`site_id`, `site_logo`, `site_name`, `site_email_address`, `site_mobile_number`, `site_address`, `site_gst_number`, `site_challan_prefix`) VALUES
+(1, '182514machine.png', 'WONDER WORLD TOOLS', 'pankit.work@gmail.com', '9067752224', '150 Feet Ring Rd, Govardhan Chowk,\r\nPunit Nagar, Mavdi, Rajkot,\r\nGujarat 360004', '1234567890', 'WWT');
 
 -- --------------------------------------------------------
 

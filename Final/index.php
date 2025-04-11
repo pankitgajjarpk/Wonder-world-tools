@@ -83,7 +83,7 @@ if(strlen($msg) > 0) {
                             <form action="login-db.php" method="POST">
                                 <div class="row">
                                     <div class="col-md-12 mb-3">
-                                        <h2>Sign In</h2>
+                                        <h2><?php echo $site_name; ?></h2>
                                         <p>Enter your email address and password to login</p>
                                         <?php if($mymsg != "") { echo $mymsg; } ?>
                                     </div>
