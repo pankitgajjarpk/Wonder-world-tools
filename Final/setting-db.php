@@ -18,7 +18,7 @@ if($site_logo != "") {
 	$site_logo_value = $hidden_site_logo;
 }
 
-if($site_logo_value == "" || $_POST["site_name"] == "" || $_POST["site_email_address"] == "" || $_POST["site_mobile_number"] == "" || $_POST["site_address"] == "" || $_POST["site_challan_prefix"] == "") {
+if($site_logo_value == "" || $_POST["site_name"] == "" || $_POST["site_email_address"] == "" || $_POST["site_mobile_number"] == "" || $_POST["site_address"] == "" || $_POST["site_gst_number"] == "" || $_POST["site_challan_prefix"] == "") {
 	$formresponse['status'] = 2;
 	echo json_encode($formresponse);
 	exit;
@@ -41,7 +41,7 @@ if($_FILES['site_logo']['name'] != "") {
 	$site_logo_name = $_FILES['site_logo']['name'];
 	$ext = pathinfo($site_logo_name, PATHINFO_EXTENSION);
 
-	if(!in_array($ext, $userimagename)) {
+	if(!in_array($ext, $uploadimagetype)) {
 		$formresponse['status'] = 11;
 		echo json_encode($formresponse);
 		exit;
@@ -63,9 +63,7 @@ if($_FILES['site_logo']['name'] != "") {
 	$site_logo_text = $hidden_site_logo;
 }
 
-$site_quotation_prefix_data = str_replace(array( "\'", "'", ";", "<", ">", "_", "&", "*", "/", "-", "!", "@", "#", "(", ")", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", ".", "?", "$", "%", "^", " "), '', $_POST["site_quotation_prefix"]);
-
-$site_proforma_prefix_data = str_replace(array( "\'", "'", ";", "<", ">", "_", "&", "*", "/", "-", "!", "@", "#", "(", ")", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", ".", "?", "$", "%", "^", " "), '', $_POST["site_proforma_prefix"]);
+$site_challan_prefix_data = str_replace(array( "\'", "'", ";", "<", ">", "_", "&", "*", "/", "-", "!", "@", "#", "(", ")", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", ".", "?", "$", "%", "^", " "), '', $_POST["site_challan_prefix"]);
 
 $data = [
     'site_logo' => $site_logo_text,
@@ -73,37 +71,15 @@ $data = [
     'site_name' => trim(strtoupper($_POST["site_name"])),
     'site_email_address' => trim($_POST["site_email_address"]),
     'site_mobile_number' => trim($_POST["site_mobile_number"]),
-    'site_gst_number' => trim($_POST["site_gst_number"]),
+    'site_gst_number' => trim(strtoupper($_POST["site_gst_number"])),
     'site_address' => trim(htmlspecialchars(ucwords($_POST["site_address"]))),
-    'site_website' => trim($_POST["site_website"]),
     
-    'site_bank_name' => trim(strtoupper($_POST["site_bank_name"])),
-    'site_account_name' => trim(strtoupper($_POST["site_account_name"])),
-    'site_ifsc_code' => trim(strtoupper($_POST["site_ifsc_code"])),
-    'site_swift_code' => trim(strtoupper($_POST["site_swift_code"])),
-    'site_account_number' => trim($_POST["site_account_number"]),
-    'site_bank_address' => trim(htmlspecialchars(strtoupper($_POST["site_bank_address"]))),
-    
-    'site_quotation_prefix' => trim($site_quotation_prefix_data ),
-    'site_proforma_prefix' => trim($site_proforma_prefix_data),
-    'site_client_name' => trim($_POST["site_client_name"]),
-    'site_client_number' => trim($_POST["site_client_number"]),
-    'site_client_gst_number' => trim($_POST["site_client_gst_number"]),
-    'site_client_address' => trim($_POST["site_client_address"]),
-    
-    'site_terms_title_one' => trim(strtoupper($_POST["site_terms_title_one"])),
-    'site_terms_one' => trim($site_terms_one_db),
-    'site_terms_title_two' => trim(strtoupper($_POST["site_terms_title_two"])),
-    'site_terms_two' => trim($site_terms_two_db),
-    'site_terms_title_three' => trim(strtoupper($_POST["site_terms_title_three"])),
-    'site_terms_three' => trim($site_terms_three_db),
-    
-    'site_indiamart_key_details' => trim($_POST["site_indiamart_key_details"]),
+    'site_challan_prefix' => trim($site_challan_prefix_data ),
 ];
 
 //echo "<pre>"; print_r($data); echo "</pre>"; exit;
 
-$updategeneraldetails = "UPDATE tbl_site_details SET site_logo = :site_logo, site_rectangle_logo = :site_rectangle_logo, site_home_screen = :site_home_screen, site_signature = :site_signature, site_name = :site_name, site_short_name = :site_short_name, site_email_address = :site_email_address, site_mobile_number = :site_mobile_number, site_gst_number = :site_gst_number, site_address = :site_address, site_website = :site_website, site_bank_name = :site_bank_name, site_account_name = :site_account_name, site_ifsc_code = :site_ifsc_code, site_swift_code = :site_swift_code, site_account_number = :site_account_number, site_bank_address = :site_bank_address, site_quotation_prefix = :site_quotation_prefix, site_proforma_prefix = :site_proforma_prefix, site_client_name = :site_client_name, site_client_number = :site_client_number, site_client_gst_number = :site_client_gst_number, site_client_address = :site_client_address, site_terms_title_one = :site_terms_title_one, site_terms_one = :site_terms_one, site_terms_title_two = :site_terms_title_two, site_terms_two = :site_terms_two, site_terms_title_three = :site_terms_title_three, site_terms_three = :site_terms_three, site_indiamart_key_details = :site_indiamart_key_details WHERE site_id = 1";
+$updategeneraldetails = "UPDATE tbl_site_details SET site_logo = :site_logo, site_name = :site_name, site_email_address = :site_email_address, site_mobile_number = :site_mobile_number, site_gst_number = :site_gst_number, site_address = :site_address, site_challan_prefix = :site_challan_prefix WHERE site_id = 1";
 $updategeneraldetails = $pdo->prepare($updategeneraldetails);
 
 if($updategeneraldetails->execute($data)) {

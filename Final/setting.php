@@ -29,39 +29,14 @@ if (strlen($msg) > 0) {
 $selectsitesettengs = $pdo->query("SELECT * FROM tbl_site_details WHERE site_id = 1");
 $sitesettengs = $selectsitesettengs->fetch(PDO::FETCH_ASSOC);
 $site_logo = $sitesettengs['site_logo'];
-$site_rectangle_logo = $sitesettengs['site_rectangle_logo'];
-$site_home_screen = $sitesettengs['site_home_screen'];
-$site_signature = $sitesettengs['site_signature'];
 
 $site_name = $sitesettengs['site_name'];
-$site_short_name = $sitesettengs['site_short_name'];
 $site_email_address = $sitesettengs['site_email_address'];
 $site_mobile_number = $sitesettengs['site_mobile_number'];
 $site_gst_number = $sitesettengs['site_gst_number'];
 $site_address = $sitesettengs['site_address'];
-$site_website = $sitesettengs['site_website'];
 
-$site_quotation_prefix = $sitesettengs['site_quotation_prefix'];
-$site_proforma_prefix = $sitesettengs['site_proforma_prefix'];
-
-$site_client_name = $sitesettengs['site_client_name'];
-$site_client_number = $sitesettengs['site_client_number'];
-$site_client_gst_number = $sitesettengs['site_client_gst_number'];
-$site_client_address = $sitesettengs['site_client_address'];
-
-$site_bank_name = $sitesettengs['site_bank_name'];
-$site_account_name = $sitesettengs['site_account_name'];
-$site_ifsc_code = $sitesettengs['site_ifsc_code'];
-$site_swift_code = $sitesettengs['site_swift_code'];
-$site_account_number = $sitesettengs['site_account_number'];
-$site_bank_address = $sitesettengs['site_bank_address'];
-
-$site_terms_title_one = $sitesettengs['site_terms_title_one'];
-$site_terms_one = $sitesettengs['site_terms_one'];
-$site_terms_title_two = $sitesettengs['site_terms_title_two'];
-$site_terms_two = $sitesettengs['site_terms_two'];
-$site_terms_title_three = $sitesettengs['site_terms_title_three'];
-$site_terms_three = $sitesettengs['site_terms_three'];
+$site_challan_prefix = $sitesettengs['site_challan_prefix'];
 ?>
 <div class="secondary-nav">
     <div class="breadcrumbs-container" data-page-heading="Analytics">
@@ -131,6 +106,12 @@ $site_terms_three = $sitesettengs['site_terms_three'];
                         </div>
                     </div>
                     <div class="row mb-3">
+                        <label for="inputEmail2" class="col-sm-2 col-form-label">Challan Prefix <span class="text-danger">*</span></label>
+                        <div class="col-sm-10">
+                            <input required type="text" placeholder="Challan Prefix" name="site_challan_prefix" value="<?php echo $site_challan_prefix; ?>" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
                         <label for="inputEmail2" class="col-sm-2 col-form-label">Address <span class="text-danger">*</span></label>
                         <div class="col-sm-10">
                             <textarea required placeholder="Address" name="site_address" rows="4" class="form-control" id="exampleFormControlTextarea1" required><?php echo $site_address; ?></textarea>
@@ -168,7 +149,7 @@ jQuery('#submitbtn').click(function () {
 
         beforeSend: function () {
             $('#inquiryloading').html(
-                '<img src="src/assets/img/ajax-loader.gif"/>'
+                '<img src="images/ajax-loader.gif"/>'
             );
         },
         complete: function () {
@@ -186,7 +167,7 @@ jQuery('#submitbtn').click(function () {
 
                 $(".form-message").show().delay(2000).fadeOut('slow');
 
-                setTimeout(function () { window.location = '<?php echo SITE_URL; ?>setting'; }, 2000);
+                setTimeout(function () { window.location = 'setting.php'; }, 2000);
             } else if (html.status == 2) {
                 $('.form-error').html('<div class="alert alert-danger my-3" role="alert">Please fill out all fields.</div>').fadeIn('slow');
 
