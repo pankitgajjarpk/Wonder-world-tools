@@ -97,35 +97,45 @@ $site_terms_three = $sitesettengs['site_terms_three'];
             </div>
             <div class="widget-content widget-content-area">
                 <form class="custom-search-form" id="dataform" method="post">
-                    <div class="row g-3">
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                            <label class="form-label">Company Name – Display Name <span class="text-danger">*</span></label>
-                            <input type="text" placeholder="Company Name – Display Name" name="site_name" value="<?php echo $site_name; ?>" class="form-control redborder">
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                            <label class="form-label">Company Short Name <span class="text-danger">*</span></label>
-                            <input type="text" placeholder="Company Short Name" name="site_short_name" value="<?php echo $site_short_name; ?>" class="form-control redborder" maxlength="15">
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                            <label class="form-label">Mail id <span class="text-danger">*</span></label>
-                            <input type="email" placeholder="Mail id" name="site_email_address" value="<?php echo $site_email_address; ?>" class="form-control redborder">
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                            <label class="form-label">Mobile Number <span class="text-danger">*</span></label>
-                            <input type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="10" placeholder="Mobile Number" name="site_mobile_number" value="<?php echo $site_mobile_number; ?>" class="form-control redborder" onkeypress="return PhoneNumber(event)">
+                    <div class="row mb-3">
+                        <label for="inputEmail2" class="col-sm-2 col-form-label">Logo <span class="text-danger">*</span></label>
+                        <div class="col-sm-10">
+                            <input required type="file" name="site_logo" class="form-control redborder" accept=".jpeg, .jpg, .png">
+                            <?php if ($site_logo != "") { ?>
+                                <br>
+                                <img src="images/<?php echo $site_logo; ?>" width="50" />
+                                <input type="hidden" name="hidden_site_logo" value="<?php echo $site_logo; ?>">
+                            <?php } ?>
                         </div>
                     </div>
-
-                    <div class="row g-3 mt-1">
-                        <div class="col-md-4 col-12">
-                            <label class="form-label">GST Number </label>
-                            <input type="text" placeholder="GST Number" name="site_gst_number" value="<?php echo $site_gst_number; ?>" class="form-control">
-                            <label class="form-label mt-2">Website </label>
-                            <input type="text" placeholder="Website" name="site_website" value="<?php echo $site_website; ?>" class="form-control">
+                    <div class="row mb-3">
+                        <label for="inputEmail2" class="col-sm-2 col-form-label">Company Name <span class="text-danger">*</span></label>
+                        <div class="col-sm-10">
+                            <input required type="text" placeholder="Company Name – Display Name" name="site_name" value="<?php echo $site_name; ?>" class="form-control">
                         </div>
-                        <div class="col-md-8 col-12">
-                            <label class="form-label">Address <span class="text-danger">*</span></label>
-                            <textarea placeholder="Address" name="site_address" rows="4" class="form-control redborder" id="exampleFormControlTextarea1" required><?php echo $site_address; ?></textarea>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="inputEmail2" class="col-sm-2 col-form-label">Email Address <span class="text-danger">*</span></label>
+                        <div class="col-sm-10">
+                            <input required type="email" placeholder="Mail id" name="site_email_address" value="<?php echo $site_email_address; ?>" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="inputEmail2" class="col-sm-2 col-form-label">Mobile Number <span class="text-danger">*</span></label>
+                        <div class="col-sm-10">
+                            <input required type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="10" placeholder="Mobile Number" name="site_mobile_number" value="<?php echo $site_mobile_number; ?>" class="form-control" onkeypress="return PhoneNumber(event)">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="inputEmail2" class="col-sm-2 col-form-label">GST Number <span class="text-danger">*</span></label>
+                        <div class="col-sm-10">
+                            <input required type="text" placeholder="GST Number" name="site_gst_number" value="<?php echo $site_gst_number; ?>" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="inputEmail2" class="col-sm-2 col-form-label">Address <span class="text-danger">*</span></label>
+                        <div class="col-sm-10">
+                            <textarea required placeholder="Address" name="site_address" rows="4" class="form-control" id="exampleFormControlTextarea1" required><?php echo $site_address; ?></textarea>
                         </div>
                     </div>
 
@@ -136,9 +146,9 @@ $site_terms_three = $sitesettengs['site_terms_three'];
                     </div>
                     
                     <div class="row g-3">
-                        <div class="col-md-12 custom-btn">
-                            <button type="button" id="submitbtn" class="btn btn-success custom-ml-0 waves-effect waves-light">Submit</button>
-                            <button type="button" onclick="window.location = '<?php echo SITE_URL; ?>dashboard'" class="btn btn-danger waves-effect waves-light">Cancel</button>
+                        <div class="col-md-12">
+                            <button type="button" id="submitbtn" class="btn btn-success _effect--ripple waves-effect waves-light me-2">Submit</button>
+                            <button type="button" onclick="window.location = 'dashboard.php'" class="btn btn-danger _effect--ripple waves-effect waves-light">Cancel</button>
                         </div>
                     </div>
                 </form>
@@ -160,7 +170,7 @@ jQuery('#submitbtn').click(function () {
 
         beforeSend: function () {
             $('#inquiryloading').html(
-                '<img src="<?php echo SITE_URL; ?>images/ajax-loader.gif"/>'
+                '<img src="src/assets/img/ajax-loader.gif"/>'
             );
         },
         complete: function () {
