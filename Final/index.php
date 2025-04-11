@@ -10,7 +10,7 @@ $err = isset($_REQUEST["err"]) ? strtolower(trim($_REQUEST["err"])) : "";
 $msg = isset($_REQUEST["msg"]) ? strtolower(trim($_REQUEST["msg"])) : "";
 
 if($_SESSION["logged_user_id"] != "") {
-    header ("Location:".SITE_URL."dashboard");
+    header ("Location: dashboard.php");
     exit;
 }
 
