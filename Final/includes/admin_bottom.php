@@ -22,5 +22,10 @@
     <script src="<?php echo $site_url; ?>src/plugins/src/apex/apexcharts.min.js"></script>
     <script src="<?php echo $site_url; ?>src/assets/js/dashboard/dash_2.js"></script>
     <?php } ?>
+
+    <script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"></script>
 </body>
 </html>

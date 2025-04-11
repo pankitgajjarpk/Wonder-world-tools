@@ -7,9 +7,6 @@ include_once("functions.php");
         <div class="navbar-nav theme-brand flex-row  text-center">
             <div class="nav-logo">
                 <div class="nav-item theme-logo">
-                    <a href="<?php echo $site_url; ?>">
-                        <img src="<?php echo $site_url; ?>src/assets/img/logo.svg" class="navbar-logo" alt="logo">
-                    </a>
                 </div>
                 <div class="nav-item theme-text">
                     <a href="<?php echo $site_url; ?>" class="nav-link"><?php echo $site_name; ?></a>
