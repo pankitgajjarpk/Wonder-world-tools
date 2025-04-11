@@ -16,7 +16,12 @@ if ($_SESSION["logged_user_id"] == "") {
     
     <title><?php echo $site_name; ?></title>
 
+    <?php if($site_logo != "") { ?>
+    <link href="<?php echo $site_url.'images/'.$site_logo; ?>"/>
+    <?php } else { ?>
     <link rel="icon" type="image/x-icon" href="<?php echo $site_url; ?>src/assets/img/favicon.ico"/>
+    <?php } ?>
+
     <link href="<?php echo $site_url; ?>layouts/vertical-light-menu/css/light/loader.css" rel="stylesheet" type="text/css" />
     
     <script src="<?php echo $site_url; ?>layouts/vertical-light-menu/loader.js"></script>

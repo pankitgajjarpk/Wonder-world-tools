@@ -55,6 +55,6 @@ $site_logo = $sitesettengs['site_logo'];
 $site_name = $sitesettengs['site_name'];
 $site_email_address = $sitesettengs['site_email_address'];
 $site_mobile_number = $sitesettengs['site_mobile_number'];
+$site_gst_number = $sitesettengs['site_gst_number'];
 $site_address = $sitesettengs['site_address'];
-
 $site_challan_prefix = $sitesettengs['site_challan_prefix'];

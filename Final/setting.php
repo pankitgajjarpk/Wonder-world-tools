@@ -29,13 +29,11 @@ if (strlen($msg) > 0) {
 $selectsitesettengs = $pdo->query("SELECT * FROM tbl_site_details WHERE site_id = 1");
 $sitesettengs = $selectsitesettengs->fetch(PDO::FETCH_ASSOC);
 $site_logo = $sitesettengs['site_logo'];
-
 $site_name = $sitesettengs['site_name'];
 $site_email_address = $sitesettengs['site_email_address'];
 $site_mobile_number = $sitesettengs['site_mobile_number'];
 $site_gst_number = $sitesettengs['site_gst_number'];
 $site_address = $sitesettengs['site_address'];
-
 $site_challan_prefix = $sitesettengs['site_challan_prefix'];
 ?>
 <div class="secondary-nav">
