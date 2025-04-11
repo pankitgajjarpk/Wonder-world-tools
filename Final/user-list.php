@@ -77,9 +77,9 @@ $totalcount = $selectusersdetails->rowCount();
                         $user_status = $userdetails['user_status'];
                         
                         if ($user_status == 'Yes') {
-                            $userstatus = '<span class="badge rounded-pill bg-label-success">Active</span>';
+                            $userstatus = '<span class="badge badge-success">Active</span>';
                         } else {
-                            $userstatus = '<span class="badge rounded-pill bg-label-danger">Deactivate</span>';
+                            $userstatus = '<span class="badge badge-danger">Deactivate</span>';
                         }
                         ?>
                         <tr>
